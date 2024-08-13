@@ -1,0 +1,64 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Book a Ticket</h1>
+    
+    <div class="row">
+        <!-- Movie Image on the Left -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ movie.poster.url }}" class="card-img-top" alt="{{ movie.title }}">
+            </div>
+        </div>
+
+        <!-- Movie Details on the Right -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Movie Details
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Movie Title: <strong>{{ movie.title }}</strong></h5>
+                    <p class="card-text"><strong>Type:</strong> {{ movie.movie_type }}</p>
+                    <p class="card-text"><strong>Genre:</strong> {{ movie.genre }}</p>
+                    <p class="card-text"><strong>IMDB Rating:</strong> {{ movie.rating }}</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Book Your Tickets
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'confirm_booking_page' movie.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Select Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="theater" class="form-label">Select Theater</label>
+                            <select class="form-control" id="theater" name="theater" required>
+                                {% for theater in theaters %}
+                                <option value="{{ theater.id }}">{{ theater.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Select Time</label>
+                            <select class="form-control" id="time" name="time" required>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Confirm Your Booking</h1>
+
+    <div class="row">
+        <!-- Movie Poster on the Left -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ movie.poster.url }}" class="card-img-top" alt="{{ movie.title }}" style="height: 400px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- Booking Summary and Form on the Right -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Booking Summary
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Movie Title: <strong>{{ movie.title }}</strong></h5>
+                    <p class="card-text"><strong>Type:</strong> {{ movie.movie_type }}</p>
+                    <p class="card-text"><strong>Genre:</strong> {{ movie.genre }}</p>
+                    <p class="card-text"><strong>IMDB Rating:</strong> {{ movie.rating }}</p>
+                    <hr>
+                    <p class="card-text"><strong>Date:</strong> {{ booking_date }}</p>
+                    <p class="card-text"><strong>Theater:</strong> {{ theater.name }}</p>
+                    <p class="card-text"><strong>Time:</strong> {{ booking_time }}</p>
+                </div>
+            </div>
+
+            <form action="{% url 'booking_complete' movie.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="movie_id" value="{{ movie.id }}">
+                <input type="hidden" name="theater_id" value="{{ theater.id }}">
+                <input type="hidden" name="date" value="{{ booking_date }}">
+                <input type="hidden" name="time" value="{{ booking_time }}">
+                <button type="submit" class="btn btn-success">Confirm Booking</button>
+                <a href="{% url 'booking_page' movie.id %}" class="btn btn-secondary">Go Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

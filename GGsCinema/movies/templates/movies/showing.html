@@ -1,48 +1,22 @@
-{% extends "movies/base.html" %}
+{% extends 'movies/base.html' %}
 {% load static %}
 {% block content %}
-   <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem; margin-top:85px;">
-            <img src="{% static "movies/batman.jpg" %}" class="card-img-top" alt="this is batmans film">
-            <div class="card-body">
-              <h5 class="card-title">Batman Begins</h5>
-              <p class="card-text"><strong>IMDB</strong>: 9.5</p>
-              <p><strong>Director</strong>: Christopher Nolan</p>
+<div class="container mb-2 mt-5">
+    <h1 class="mb-2">Available Movies</h1>
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-md-4 mt-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ movie.poster.url }}" class="card-img-top" alt="{{ movie.title }}" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text"><strong>IMDB</strong>: {{ movie.rating }}</p>
+                    <p><strong>Director</strong>: {{ movie.director }}</p>
+                    <a href="{% url 'booking_page' movie.id %}" class="btn btn-primary mt-3">Book Ticket</a>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem; margin-top:85px;">
-            <img src="{% static "movies/fight.jpg" %}" class="card-img-top" alt="this is batmans film">
-            <div class="card-body">
-              <h5 class="card-title">Fight Club</h5>
-              <p class="card-text"><strong>IMDB</strong>: 8.8</p>
-              <p><strong>Director</strong>: David Fincher</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem; margin-top:85px;">
-              <img src="{% static "movies/star.jpg" %}" class="card-img-top" alt="this is batmans film">
-              <div class="card-body">
-                <h5 class="card-title">Star Wars</h5>
-                <p class="card-text"><strong>IMDB</strong>: 8.8</p>
-                <p><strong>Director</strong>: David Fincher</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem; margin-top:70px;">
-              <img src="{% static "movies/home.jpg" %}" class="card-img-top" alt="this is batmans film">
-              <div class="card-body">
-                <h5 class="card-title">Home Club</h5>
-                <p class="card-text"><strong>IMDB</strong>: 8.8</p>
-                <p><strong>Director</strong>: David Fincher</p>
-              </div>
-            </div>
-          </div>
-      </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
