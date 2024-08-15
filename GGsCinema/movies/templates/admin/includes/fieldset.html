@@ -1,8 +1,5 @@
 {% load jazzmin %}
 {% if card %}
-<!-- Custom fieldset template is being used -->
-<div style="color: red;">Custom fieldset is working!</div>
-
 <div class="card {{ fieldset.classes|cut:"collapse" }}">
     {% if card_header and fieldset.name %}
         <div class="card-header">
