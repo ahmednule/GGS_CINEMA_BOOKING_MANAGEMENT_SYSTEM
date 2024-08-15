@@ -26,13 +26,14 @@ SECRET_KEY = 'django-insecure-w%-hdn!f5=skx4)9uo+p9o9ch^$cu_wphcpap*%=ghv!@n^qze
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+# CSRF_TRUSTED_ORIGINS = ['']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-     'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'movies',
     'django.contrib.auth',
@@ -57,9 +58,10 @@ ROOT_URLCONF = 'GGsCinema.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
