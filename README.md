@@ -24,6 +24,7 @@ This web application allows users to book movie tickets online effortlessly. Bro
 
     ```bash
     git clone https://github.com/ahmednule/GGS_CINEMA_BOOKING_MANAGEMENT_SYSTEM.git
+    cd  GGS_CINEMA_BOOKING_MANAGEMENT_SYSTEM
     cd GGsCinema
     ```
 
@@ -56,12 +57,14 @@ This web application allows users to book movie tickets online effortlessly. Bro
     ```
 
 4. **Configure the Database**
+    #optional
 
     ```bash
     python manage.py migrate
     ```
 
 5. **Create a Superuser**
+     #optional
 
     ```bash
     python manage.py createsuperuser
