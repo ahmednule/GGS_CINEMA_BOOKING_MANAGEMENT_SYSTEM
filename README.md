@@ -24,7 +24,7 @@ This web application allows users to book movie tickets online effortlessly. Bro
 
     ```bash
     git clone https://github.com/ahmednule/GGS_CINEMA_BOOKING_MANAGEMENT_SYSTEM.git
-    cd gg-cinema-booking-system
+    cd GGsCinema
     ```
 
 2. **Set Up Virtual Environment**
