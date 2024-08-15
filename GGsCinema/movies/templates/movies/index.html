@@ -1,20 +1,25 @@
 {% extends "movies/base.html" %}
 {% block content %}
-    <!-- Main Content -->
-    <div class="cover-container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
-        <div class="card mb-3" style="max-width: 100%; width: 38rem; background-color: rgba(0, 0, 0, 0.5); color: white;">
-            <div class="card-body text-center">
-                <h5 class="card-title">Click on the Link below to get access to Latest Movies</h5>
-                <a href="showing/" class="btn btn-primary mt-3">What is Trending</a>
-            </div>
+  <!-- Main Content -->
+  <div class="cover-container d-flex flex-column justify-content-end align-items-center" style="height: 100vh;">
+    <div class="row w-100 justify-content-end">
+      <div class="col-lg-4 col-md-6 col-sm-8"> <!-- Responsive column classes -->
+        <div class="card mb-3" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Click on the Link below to get access to Latest Movies</h5>
+            <a href="showing/" class="btn btn-primary mt-3">What is Trending</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <style>
-        .card{
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-        }
-    </style>
+  <!-- Optional styles for very large screens -->
+  <style>
+      @media (min-width: 1200px) {
+          .card {
+              width: 30rem;
+          }
+      }
+  </style>
 {% endblock %}
