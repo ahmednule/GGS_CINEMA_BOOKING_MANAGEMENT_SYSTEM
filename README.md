@@ -1,4 +1,4 @@
-## GG's Cinema Booking Management System
+## Garden City Cinema Booking Management System
 
 This web application allows users to book movie tickets online effortlessly. Browse movies, select showtimes, reserve seats, and manage your bookings—all from the comfort of your home. Enjoy a streamlined movie-booking experience with our user-friendly platform.
 
