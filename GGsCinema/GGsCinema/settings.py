@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-w%-hdn!f5=skx4)9uo+p9o9ch^$cu_wphcpap*%=ghv!@n^qze
 DEBUG = True
 
 ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://ggs-cinema-booking-management-system-1.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://gardencity-cinema-booking-management.onrender.com']
 
 
 # Application definition
